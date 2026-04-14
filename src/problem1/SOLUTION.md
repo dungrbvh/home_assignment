@@ -1,1 +1,2 @@
 Provide your CLI command here:
+jq -r 'select(.symbol=="TSLA" and .side=="sell") | .order_id' ./transaction-log.txt | while IFS= read -r id; do curl -sS "https://example.com/api/${id}"; printf '\n'; done > ./output.txt
